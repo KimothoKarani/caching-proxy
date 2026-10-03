@@ -35,7 +35,26 @@ public class RouteHandlers {
         // Individual handlers
         private void handleGetAllProducts(HttpExchange exchange) throws IOException {
             // 2. Create individual phone data blocks using Maps
-            List<Map<String, Object>> productsList = getProductsList();
+            Map<String, Object> phone1 = new HashMap<>();
+            phone1.put("brand", "Apple");
+            phone1.put("model", "iPhone 15 Pro");
+            phone1.put("price", 999.99);
+
+            Map<String, Object> phone2 = new HashMap<>();
+            phone2.put("brand", "Samsung");
+            phone2.put("model", "Galaxy S24 Ultra");
+            phone2.put("price", 1199.99);
+
+            Map<String, Object> phone3 = new HashMap<>();
+            phone3.put("brand", "Google");
+            phone3.put("model", "Pixel 8 Pro");
+            phone3.put("price", 799.00);
+
+            // 3. Group the phone maps into a List (the JSON array)
+            List<Map<String, Object>> productsList = new ArrayList<>();
+            productsList.add(phone1);
+            productsList.add(phone2);
+            productsList.add(phone3);
 
             // 4. Build the final top-level Response Map
             Map<String, Object> responseMap = new HashMap<>();
@@ -66,29 +85,5 @@ public class RouteHandlers {
                 os.write(response.getBytes());
             }
         }
-    }
-
-    private static List<Map<String, Object>> getProductsList() {
-        Map<String, Object> phone1 = new HashMap<>();
-        phone1.put("brand", "Apple");
-        phone1.put("model", "iPhone 15 Pro");
-        phone1.put("price", 999.99);
-
-        Map<String, Object> phone2 = new HashMap<>();
-        phone2.put("brand", "Samsung");
-        phone2.put("model", "Galaxy S24 Ultra");
-        phone2.put("price", 1199.99);
-
-        Map<String, Object> phone3 = new HashMap<>();
-        phone3.put("brand", "Google");
-        phone3.put("model", "Pixel 8 Pro");
-        phone3.put("price", 799.00);
-
-        // 3. Group the phone maps into a List (the JSON array)
-        List<Map<String, Object>> productsList = new ArrayList<>();
-        productsList.add(phone1);
-        productsList.add(phone2);
-        productsList.add(phone3);
-        return productsList;
     }
 }

@@ -1,4 +1,4 @@
-package com.simon;
+package com.dev;
 
 import java.util.HashMap;
 import java.util.Map;
