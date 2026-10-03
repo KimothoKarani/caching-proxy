@@ -1,4 +1,4 @@
-package com.simon;
+package com.dev;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
